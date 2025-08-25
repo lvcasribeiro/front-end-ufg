@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Página de Pagamento</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body
+    class="bg-info bg-opacity-25 d-flex justify-content-center align-items-center vh-100"
+  >
+    <div class="card shadow-lg w-100" style="max-width: 400px">
+      <div class="card-body">
+        <h1 class="h4 text-center mb-4">Pagamento</h1>
+
+        <form id="paymentForm" novalidate>
+          <div class="mb-3">
+            <label for="cardBrand" class="form-label"
+              >Bandeira do Cartão:</label
+            >
+            <select
+              id="cardBrand"
+              name="cardBrand"
+              class="form-select"
+              required
+            >
+              <option value="" disabled selected>Selecione a bandeira</option>
+              <option value="Visa">Visa</option>
+              <option value="Mastercard">Mastercard</option>
+              <option value="American Express">American Express</option>
+            </select>
+            <div class="invalid-feedback">
+              Selecione uma bandeira do cartão.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Número do Cartão:</label>
+            <input
+              type="number"
+              maxlength="16"
+              class="form-control"
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="1234 5678 9012 3456"
+              required
+            />
+            <div class="invalid-feedback">Informe o número do cartão.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="expiryDate" class="form-label"
+              >Data de Expiração:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="expiryDate"
+              name="expiryDate"
+              placeholder="MM/AA"
+              required
+            />
+            <div class="invalid-feedback">Informe a data de expiração.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="securityCode" class="form-label"
+              >Código de Segurança:</label
+            >
+            <input
+              type="number"
+              maxlength="3"
+              class="form-control"
+              id="securityCode"
+              name="securityCode"
+              placeholder="123"
+              required
+            />
+            <div class="invalid-feedback">Informe o código de segurança.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="cardHolder" class="form-label"
+              >Nome Impresso no Cartão:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="cardHolder"
+              name="cardHolder"
+              placeholder="Nome completo"
+              required
+            />
+            <div class="invalid-feedback">
+              Informe o nome impresso no cartão.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Finalizar</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("paymentForm");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+          return;
+        }
+
+        const cardBrand = document.getElementById("cardBrand").value;
+
+        window.location.href = `pagamento-finalizado.html?cardBrand=${encodeURIComponent(
+          cardBrand
+        )}`;
+      });
+    </script>
+  </body>
+</html>

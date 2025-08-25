@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pagamento Finalizado</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body
+    class="bg-info bg-opacity-25 d-flex justify-content-center align-items-center vh-100"
+  >
+    <div class="card shadow-lg w-100" style="max-width: 500px">
+      <div class="card-body text-center">
+        <h1 class="h4 mb-4">Compra Finalizada</h1>
+
+        <p class="fw-bold text-success">Compra realizada com sucesso!</p>
+
+        <p class="text-start"><strong>Produtos:</strong></p>
+        <ul class="list-unstyled text-start">
+          <li>Produto A - 2 unidades - R$ 50,00</li>
+          <li>Produto B - 1 unidade - R$ 30,00</li>
+        </ul>
+
+        <p class="text-start">
+          <strong>Forma de Pagamento:</strong>
+          <span id="paymentBrand"></span>
+        </p>
+
+        <p class="text-start"><strong>Valor Total:</strong> R$ 80,00</p>
+
+        <div class="mt-4">
+          <a href="pagamento.html" class="btn btn-primary">Voltar</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const brand = params.get("cardBrand") || "Não informado";
+
+      document.getElementById("paymentBrand").innerText = brand;
+    </script>
+  </body>
+</html>
