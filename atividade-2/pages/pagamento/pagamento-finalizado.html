@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Pagamento Finalizado</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -14,40 +13,118 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+        .produto-item {
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+        }
+        .produto-item:last-child {
+            border-bottom: none;
+        }
+    </style>
   </head>
   <body
     class="bg-info bg-opacity-25 d-flex justify-content-center align-items-center vh-100"
   >
-    <div class="card shadow-lg w-100" style="max-width: 500px">
+    <div class="card shadow-lg w-100" style="max-width: 600px">
       <div class="card-body text-center">
         <h1 class="h4 mb-4">Compra Finalizada</h1>
 
-        <p class="fw-bold text-success">Compra realizada com sucesso!</p>
+        <div class="alert alert-success">
+            <i class="bi bi-check-circle-fill"></i> Compra realizada com sucesso!
+        </div>
 
-        <p class="text-start"><strong>Produtos:</strong></p>
-        <ul class="list-unstyled text-start">
-          <li>Produto A - 2 unidades - R$ 50,00</li>
-          <li>Produto B - 1 unidade - R$ 30,00</li>
-        </ul>
+        <div class="text-start">
+            <p class="fw-bold">Produtos:</p>
+            <div id="lista-produtos" class="mb-3">
+            </div>
 
-        <p class="text-start">
-          <strong>Forma de Pagamento:</strong>
-          <span id="paymentBrand"></span>
-        </p>
-
-        <p class="text-start"><strong>Valor Total:</strong> R$ 80,00</p>
-
-        <div class="mt-4">
-          <a href="pagamento.html" class="btn btn-primary">Voltar</a>
+            <p><strong>Forma de Pagamento:</strong> <span id="paymentBrand"></span></p>
+            
+            <p class="fw-bold mt-4">Resumo do Pedido:</p>
+            <p><strong>Valor Total:</strong> <span id="valor-total"></span></p>
+            <p><strong>Total de Itens:</strong> <span id="total-itens"></span></p>
         </div>
       </div>
     </div>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      const brand = params.get("cardBrand") || "Não informado";
+        // Recuperar dados do carrinho
+        function getCarrinho() {
+            return JSON.parse(localStorage.getItem('carrinho')) || [];
+        }
 
-      document.getElementById("paymentBrand").innerText = brand;
+        // Calcular total do carrinho
+        function calcularTotal(carrinho) {
+            return carrinho.reduce((total, produto) => {
+                return total + (produto.preco * produto.quantidade);
+            }, 0);
+        }
+
+        // Calcular total de itens
+        function calcularTotalItens(carrinho) {
+            return carrinho.reduce((total, produto) => {
+                return total + produto.quantidade;
+            }, 0);
+        }
+
+        // Exibir produtos na página
+        function exibirProdutos() {
+            const carrinho = getCarrinho();
+            const listaProdutos = document.getElementById('lista-produtos');
+            const valorTotal = document.getElementById('valor-total');
+            const totalItens = document.getElementById('total-itens');
+            
+            if (carrinho.length === 0) {
+                listaProdutos.innerHTML = '<p class="text-muted">Nenhum produto no carrinho</p>';
+                valorTotal.textContent = 'R$ 0,00';
+                totalItens.textContent = '0';
+                return;
+            }
+            
+            // Exibir produtos
+            listaProdutos.innerHTML = '';
+            carrinho.forEach(produto => {
+                const produtoDiv = document.createElement('div');
+                produtoDiv.className = 'produto-item';
+                produtoDiv.innerHTML = `
+                    <div class="d-flex justify-content-between">
+                        <span>${produto.nome}</span>
+                        <span>${produto.quantidade}x</span>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted">
+                        <small>R$ ${produto.preco.toFixed(2)} cada</small>
+                        <strong>R$ ${(produto.preco * produto.quantidade).toFixed(2)}</strong>
+                    </div>
+                `;
+                listaProdutos.appendChild(produtoDiv);
+            });
+            
+            // Exibir totais
+            const total = calcularTotal(carrinho);
+            const itensTotal = calcularTotalItens(carrinho);
+            
+            valorTotal.textContent = `R$ ${total.toFixed(2)}`;
+            totalItens.textContent = itensTotal;
+        }
+
+        // Obter marca do cartão da URL
+        function getPaymentBrand() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("cardBrand") || "Cartão de Crédito";
+        }
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Exibir produtos do carrinho
+            exibirProdutos();
+            
+            // Exibir forma de pagamento
+            document.getElementById('paymentBrand').textContent = getPaymentBrand();
+            
+            // Opcional: Limpar carrinho automaticamente após compra
+            // localStorage.removeItem('carrinho');
+        });
     </script>
   </body>
 </html>

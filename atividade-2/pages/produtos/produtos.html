@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="produtos.css">
+</head>
+<body>
+    <header class="fade-header">
+        <div class="header-content">
+            <h1>FAÇA SUAS COMPRAS!</h1>
+        </div>
+    </header>
+
+    <div class="produtos-container">       
+        
+        <div class="produtos-grid">
+            <!-- Produto 1 -->
+            <div class="produto-card">
+                <img src="../../images/caixa_areia.jpeg" alt="Produto Exemplo 1" class="produto-imagem">
+                <h3 class="produto-nome">Caixa de areia</h3>
+                <p class="produto-detalhes">Detalhes: branca, CATZ, modelo 0098GT </p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 15 unidades</span>
+                    <span class="produto-preco">R$ 59,90</span>
+                    <span class="produto-avaliacao">⭐ 4.5 (120)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Caixa de areia', 59.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto-card">
+                <img src="../../images/brinquedo_cachorro.jpeg" alt="Produto Exemplo 2" class="produto-imagem">
+                <h3 class="produto-nome">Osso de borracha</h3>
+                <p class="produto-detalhes">Detalhes: rosa, DogMania, modelo j877hb</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 8 unidades</span>
+                    <span class="produto-preco">R$ 19,90</span>
+                    <span class="produto-avaliacao">⭐ 4.8 (89)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Osso de borracha', 19.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto-card">
+                <img src="../../images/kit_comedouro.jpeg" alt="Produto Exemplo 3" class="produto-imagem">
+                <h3 class="produto-nome">Corda</h3>
+                <p class="produto-detalhes">Detalhes: colorido, DogMania, modelo kju098i</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 20 unidades</span>
+                    <span class="produto-preco">R$ 19,90</span>
+                    <span class="produto-avaliacao">⭐ 4.2 (156)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Corda', 19.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="produto-card">
+                <img src="../../images/brinquedo_racao.jpeg" alt="Produto Exemplo 4" class="produto-imagem">
+                <h3 class="produto-nome">Brinquedo inteligente</h3>
+                <p class="produto-detalhes">Detalhes: azul, MelhorAmigo, modelo 887hy, não acompanha ração</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 12 unidades</span>
+                    <span class="produto-preco">R$ 45,90</span>
+                    <span class="produto-avaliacao">⭐ 4.7 (203)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brinquedo inteligente', 45.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="produto-card">
+                <img src="../../images/brinquedo_rato.jpeg" alt="Produto Exemplo 5" class="produto-imagem">
+                <h3 class="produto-nome">Rato de Brinquedo</h3>
+                <p class="produto-detalhes">Detalhes: cinza, CATZ, modelo hh1yg32, não utiliza pilhas</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 5 unidades</span>
+                    <span class="produto-preco">R$ 30,00</span>
+                    <span class="produto-avaliacao">⭐ 4.9 (67)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Rato de brinquedo', 30.00, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/caixa_transporte.jpeg" alt="Produto Exemplo 6" class="produto-imagem">
+                <h3 class="produto-nome">Caixa para transporte pequena</h3>
+                <p class="produto-detalhes">Detalhes: cinza, Gatolândia, modelo uuJY9e, tamanho P</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 78,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Caixa para transporte pequena', 78.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/caminha_cachorro.jpeg" alt="Produto Exemplo 7" class="produto-imagem">
+                <h3 class="produto-nome">Cama tamanho M</h3>
+                <p class="produto-detalhes">Detalhes: marrom, PETS, modelo ttgR576</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 59,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Cama tamanho M', 59.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/catnip.jpeg" alt="Produto Exemplo 8" class="produto-imagem">
+                <h3 class="produto-nome">Brinquedo Catnip</h3>
+                <p class="produto-detalhes">Detalhes: verde, CATZ, modelo abc223</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 49,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brinquedo catnip', 49.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/Coleira.jpeg" alt="Produto Exemplo 9" class="produto-imagem">
+                <h3 class="produto-nome">Coleira com pingente</h3>
+                <p class="produto-detalhes">Detalhes: preto, Gatolândia, modelo buy5sf77</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 14,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Coleira com pingente', 14.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/caminha_gato2.jpeg" alt="Produto Exemplo 10" class="produto-imagem">
+                <h3 class="produto-nome">Cama para gato Confort</h3>
+                <p class="produto-detalhes">Detalhes: marrom, CATZ, modelo conf1998, tamanho M</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 99,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Cama para gato Confort', 99.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <img src="../../images/kit_coleira.jpeg" alt="Produto Exemplo 10" class="produto-imagem">
+                <h3 class="produto-nome">Kit peitoral e guia</h3>
+                <p class="produto-detalhes">Detalhes: preto, Dogão, modelo ggTT67H</p>
+                <div class="produto-info">
+                    <span class="produto-quantidade">Disponível: 18 unidades</span>
+                    <span class="produto-preco">R$ 99,90</span>
+                    <span class="produto-avaliacao">⭐ 4.3 (142)</span>
+                </div>
+                <div class="produto-actions">
+                    <select class="quantidade-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Kit peitoral e guia', 99.90, this)">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            
+
+        </div>
+        <div class="finalizar-compra-container">
+            <button type="button" onclick="window.location.href='../../pages/pagamento/pagamento.html'" class="btn-finalizar-compra">
+                🛒 Finalizar Compra
+            </button>
+        </div>
+    </div>
+
+    <script>
+      function adicionarAoCarrinho(nome, preco, botao) {
+        const card = botao.closest('.produto-card');
+        const select = card.querySelector('.quantidade-select');
+        const quantidade = parseInt(select.value);
+        
+        // Criar objeto do produto
+        const produto = {
+            nome: nome,
+            preco: preco,
+            quantidade: quantidade,
+            total: (preco * quantidade).toFixed(2)
+        };
+        
+        // Recuperar carrinho existente ou criar um novo
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        
+        // Verificar se o produto já está no carrinho
+        const index = carrinho.findIndex(item => item.nome === nome);
+        
+        if (index !== -1) {
+            // Se já existe, atualiza a quantidade
+            carrinho[index].quantidade += quantidade;
+            carrinho[index].total = (carrinho[index].preco * carrinho[index].quantidade).toFixed(2);
+        } else {
+            // Se não existe, adiciona novo
+            carrinho.push(produto);
+        }
+        
+        // Salvar no localStorage
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        
+        console.log('Carrinho atual:', carrinho);
+        console.log(`Adicionando ${quantidade} ${nome}(s) ao carrinho - Total: R$ ${(preco * quantidade).toFixed(2)}`);
+        
+        // Feedback visual
+        botao.textContent = '✓ Adicionado';
+        botao.style.background = '#27ae60';
+        
+        setTimeout(() => {
+            botao.textContent = 'Adicionar';
+            botao.style.background = '';
+        }, 2000);
+    }
+    </script>
+</body>
+</html>
